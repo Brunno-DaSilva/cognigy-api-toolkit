@@ -1,7 +1,7 @@
 import Card from "../../ui/Card";
 import FormField from "../../ui/FormField";
 import TypeChip from "../../ui/TypeChip";
-import { TYPE_CONFIG, SORT_OPTIONS, LIMIT_OPTIONS } from "../../../constants";
+import { TYPE_CONFIG, SORT_OPTIONS } from "../../../constants";
 
 const LogFilters = ({ cfg, onChange, types, onToggleType }) => (
   <Card title="Filters">
@@ -53,23 +53,13 @@ const LogFilters = ({ cfg, onChange, types, onToggleType }) => (
           onChange={(e) => onChange("sort", e.target.value)}
         >
           {SORT_OPTIONS.map(({ value, label }) => (
-            <option key={value} value={value}>{label}</option>
+            <option key={value} value={value}>
+              {label}
+            </option>
           ))}
         </select>
       </FormField>
     </div>
-
-    <FormField label="Page Size">
-      <select
-        className="select select--sm"
-        value={cfg.limit}
-        onChange={(e) => onChange("limit", e.target.value)}
-      >
-        {LIMIT_OPTIONS.map(({ value, label }) => (
-          <option key={value} value={value}>{label}</option>
-        ))}
-      </select>
-    </FormField>
   </Card>
 );
 
